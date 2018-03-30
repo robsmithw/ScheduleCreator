@@ -2,12 +2,16 @@
 #include "Employee.h"
 
 void displayMenu(int& choice);
+void manuallyCreate();
 
 int main() {
 	int hold;
 	int usrChoice = 0;
 	displayMenu(usrChoice); //Shows user the menu
-	std::cout << (usrChoice);
+	// for debugging std::cout << (usrChoice);
+	if (usrChoice == 1) {
+		manuallyCreate();
+	}
 	std::cin >> hold; //I use visual studio and use this to pause the output
 	return 0;
 }
@@ -23,4 +27,16 @@ void displayMenu(int& choice) {
 		i++;
 	}
 	return;
+}
+
+void manuallyCreate() {
+	std::string firstN;
+	std::string lastN;
+	Employee aEmployee;
+	std::cout << ("Enter employee First and Last name: ");
+	std::cin >> firstN;
+	std::cin.ignore();
+	std::cin >> lastN;
+	aEmployee.setName(firstN, lastN);
+	std::cout << ("Employee name is: " + aEmployee.getName());
 }
